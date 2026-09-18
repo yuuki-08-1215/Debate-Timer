@@ -67,16 +67,20 @@ function render() {
 
 function updatePoiStatus() {
   const total = speech.duration;
-  const elapsed = total - speech.remaining;
-  const end = speech.remaining;
 
-  // First and last:
-  // 3 min -> 15 sec
-  // 5 min -> 30 sec
-  // 7 min -> 60 sec
+  // Use the exact integer-second boundary shown on screen.
+  // This makes POI status switch exactly when the displayed timer
+  // reaches the boundary:
+  // 3 min -> first/last 15 sec
+  // 5 min -> first/last 30 sec
+  // 7 min -> first/last 60 sec
+  const elapsedShown = Math.floor(total - speech.remaining);
+  const remainingShown = Math.ceil(speech.remaining);
   const blocked = total / 10;
 
-  const unavailable = elapsed < blocked || end <= blocked;
+  const unavailable =
+    elapsedShown < blocked ||
+    remainingShown <= blocked;
 
   const status = $("poiStatus");
   status.textContent = unavailable ? "POI 不可" : "POI 可";
