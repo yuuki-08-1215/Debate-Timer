@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f3f4f6;
+  color: #111827;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+  width: min(1100px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 28px 0 40px;
+}
+
+h1 {
+  text-align: center;
+  letter-spacing: 0.12em;
+  margin: 0 0 24px;
+  font-size: clamp(26px, 5vw, 42px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 18px;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.presets {
+  display: flex;
+  gap: 6px;
+}
+
+button {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 13px;
+  background: #e5e7eb;
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .08s, background .15s;
+}
+
+button:hover {
+  background: #d1d5db;
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+.presets button.selected {
+  background: #111827;
+  color: white;
+}
+
+.display {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(54px, 10vw, 92px);
+  font-weight: 800;
+  letter-spacing: .03em;
+  margin: 20px 0 12px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.primary {
+  background: #111827;
+  color: white;
+}
+
+.primary:hover {
+  background: #374151;
+}
+
+.poi-status {
+  text-align: center;
+  font-size: clamp(24px, 5vw, 38px);
+  font-weight: 800;
+  border-radius: 12px;
+  padding: 9px;
+  margin: 0 0 16px;
+}
+
+.poi-status.available {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.poi-status.unavailable {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.extension-green {
+  color: #16a34a;
+}
+
+.extension-yellow {
+  color: #ca8a04;
+}
+
+.extension-red {
+  color: #dc2626;
+}
+
+.hint {
+  color: #6b7280;
+  text-align: center;
+  margin: -2px 0 16px;
+  font-size: 14px;
+}
+
+.extension-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.extension-card .display {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 750px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .presets {
+    width: 100%;
+  }
+
+  .presets button {
+    flex: 1;
+  }
+
+  .display {
+    font-size: 64px;
+  }
+}

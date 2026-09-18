@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debate Timer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <h1>DEBATE TIMER</h1>
+
+    <section class="grid">
+      <div class="card speech-card">
+        <div class="title-row">
+          <h2>Speech</h2>
+          <div class="presets" id="speechPresets">
+            <button data-minutes="3">3 min</button>
+            <button data-minutes="5" class="selected">5 min</button>
+            <button data-minutes="7">7 min</button>
+          </div>
+        </div>
+
+        <div id="speechDisplay" class="display">5:00</div>
+        <div id="poiStatus" class="poi-status unavailable">POI 不可</div>
+        <div class="controls">
+          <button id="speechStart" class="primary">START</button>
+          <button id="speechPause">PAUSE</button>
+          <button id="speechReset">RESET</button>
+        </div>
+      </div>
+
+      <div class="card extension-card">
+        <h2>Extension</h2>
+        <div id="extensionDisplay" class="display extension-green">0:00</div>
+        <p class="hint">Speech終了と同時に自動スタート</p>
+        <button id="extensionReset">RESET</button>
+      </div>
+
+      <div class="card reply-card">
+        <div class="title-row">
+          <h2>Reply Speech</h2>
+          <div class="presets" id="replyPresets">
+            <button data-minutes="2">2 min</button>
+            <button data-minutes="4" class="selected">4 min</button>
+          </div>
+        </div>
+
+        <div id="replyDisplay" class="display">4:00</div>
+        <div class="controls">
+          <button id="replyStart" class="primary">START</button>
+          <button id="replyPause">PAUSE</button>
+          <button id="replyReset">RESET</button>
+        </div>
+      </div>
+
+      <div class="card poi-card">
+        <h2>POI</h2>
+        <div id="poiDisplay" class="display">0:15</div>
+        <p class="hint">Speechとは独立して動作</p>
+        <div class="controls">
+          <button id="poiStart" class="primary">START</button>
+          <button id="poiPause">PAUSE</button>
+          <button id="poiReset">RESET</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
