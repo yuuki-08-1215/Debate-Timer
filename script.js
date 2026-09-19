@@ -182,22 +182,22 @@ function tick(t) {
     speech.remaining = Math.max(0, (speech.endAt - current) / 1000);
 
     if (speech.running && speech.remaining <= 0) {
-  speech.remaining = 0;
-  speech.running = false;
-  speech.endAt = null;
+      speech.remaining = 0;
+      speech.running = false;
+      speech.endAt = null;
 
-  extension.running = true;
-  extension.startAt = current;
-}
+      extension.running = true;
+      extension.startAt = current;
+    }
 
     if (reply.running && reply.remaining <= 0) {
-  reply.remaining = 0;
-  reply.running = false;
-  reply.endAt = null;
+      reply.remaining = 0;
+      reply.running = false;
+      reply.endAt = null;
 
-  extension.running = true;
-  extension.startAt = current;
-}
+      extension.running = true;
+      extension.startAt = current;
+    }
   }
 
   if (reply.running) {
