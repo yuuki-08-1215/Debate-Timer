@@ -179,36 +179,44 @@ function tick(t) {
   const current = t;
 
   if (speech.running) {
-    speech.remaining = Math.max(0, (speech.endAt - current) / 1000);
 
-    if (speech.running && speech.remaining <= 0) {
-      speech.remaining = 0;
-      speech.running = false;
-      speech.endAt = null;
+  speech.remaining = Math.max(0, (speech.endAt - current) / 1000);
 
-      extension.running = true;
-      extension.startAt = current;
-    }
+  if (speech.remaining <= 0) {
 
-    if (reply.running && reply.remaining <= 0) {
-      reply.remaining = 0;
-      reply.running = false;
-      reply.endAt = null;
+    speech.remaining = 0;
 
-      extension.running = true;
-      extension.startAt = current;
-    }
+    speech.running = false;
+
+    speech.endAt = null;
+
+    extension.running = true;
+
+    extension.startAt = current;
+
   }
 
-  if (reply.running) {
-    reply.remaining = Math.max(0, (reply.endAt - current) / 1000);
+}
 
-    if (reply.remaining <= 0) {
-      reply.remaining = 0;
-      reply.running = false;
-      reply.endAt = null;
-    }
+if (reply.running) {
+
+  reply.remaining = Math.max(0, (reply.endAt - current) / 1000);
+
+  if (reply.remaining <= 0) {
+
+    reply.remaining = 0;
+
+    reply.running = false;
+
+    reply.endAt = null;
+
+    extension.running = true;
+
+    extension.startAt = current;
+
   }
+
+}
 
   if (poi.running) {
     poi.remaining = Math.max(0, (poi.endAt - current) / 1000);
