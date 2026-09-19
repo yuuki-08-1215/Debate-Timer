@@ -181,15 +181,23 @@ function tick(t) {
   if (speech.running) {
     speech.remaining = Math.max(0, (speech.endAt - current) / 1000);
 
-    if (speech.remaining <= 0) {
-      speech.remaining = 0;
-      speech.running = false;
-      speech.endAt = null;
+    if (speech.running && speech.remaining <= 0) {
+  speech.remaining = 0;
+  speech.running = false;
+  speech.endAt = null;
 
-      // Exact same frame/deadline as Speech reaches zero.
-      extension.running = true;
-      extension.startAt = current;
-    }
+  extension.running = true;
+  extension.startAt = current;
+}
+
+    if (reply.running && reply.remaining <= 0) {
+  reply.remaining = 0;
+  reply.running = false;
+  reply.endAt = null;
+
+  extension.running = true;
+  extension.startAt = current;
+}
   }
 
   if (reply.running) {
